@@ -1,0 +1,38 @@
+﻿@using SeniorCapstoneProject.ViewModels
+
+@model ClassListVM
+
+<h3>List of Students in @Model.Teacher.FirstName @Model.Teacher.LastName's Classroom</h3>
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>
+                Student Names:
+            </th>
+            <th>
+                Current Level:
+            </th>
+            <th>
+                View Report:
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Students) {
+        <tr>
+            <td>
+               @item.FirstName @item.LastName
+            </td>
+            <td>
+              @item.Level.Id
+            </td>
+            <td>
+               <a asp-controller="Students" asp-action="Details" asp-route-id="@item.Id">View Report</a> 
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-action="Index">Back to Class Index</a> |

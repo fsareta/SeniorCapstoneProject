@@ -1,0 +1,30 @@
+﻿@using SeniorCapstoneProject.Services
+@model Level
+@inject IQuestions _questions
+@{
+	int x=_questions.RandomNumber();
+	int y = _questions.RandomNumber();
+	int sum = x + y;
+	string question = $"{x}+{y}=";
+	Model.Question = question;
+
+}
+
+
+	<h2>Question:</h2>
+<p>
+		@question
+</p>	
+<input asp-for="StudentAnswer" class="form-control"/>
+<div class="form-group">
+<input type="submit" value="SaveAnswer" class="btn btn-primary" />
+ </div>
+	
+
+
+
+
+
+@*How do I get a new question to pop up?
+How do I save the question and the student's answer?'
+*@
