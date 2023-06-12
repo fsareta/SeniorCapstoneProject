@@ -2,13 +2,11 @@
 {
     public class Level
     {
-        private int _score;
+        
         public int Id { get; set; }
-        public int StudentAnswer { get; set; }
-        public string Question { get; set; }
-      
-        public int Score { get { return _score; }set { _score = value; } }
+        public bool IsLocked { get; set; }
         //navigation
         public IEnumerable<Student> Student { get; set; }
+        public IEnumerable<QnA> QnA { get; set; }
     }
 }

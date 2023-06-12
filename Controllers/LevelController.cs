@@ -12,11 +12,12 @@ namespace SeniorCapstoneProject.Controllers
         }
         public IActionResult Game()
         {
-            
+           
             return View();
         }
         public IActionResult DetailedReport()
         {
+            
             return View();
         }
     }

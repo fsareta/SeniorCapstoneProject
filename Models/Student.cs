@@ -18,6 +18,7 @@ namespace SeniorCapstoneProject.Models
         public bool Enrolled { get; set; }
         [Required]
         public int TeacherId { get; set; }
+        public int Score { get; set; }
         public int LevelId { get; set; }
         //navigation
         public Teacher Teacher { get; set; }
