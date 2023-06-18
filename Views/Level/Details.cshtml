@@ -1,23 +1,14 @@
-﻿@using SeniorCapstoneProject.ViewModels
-@model AllLevelsVM
-
-<h1 class="headings">@Model.Student.FirstName @Model.Student.LastName:</h1>
-
+﻿@model QnA
 <table class="table">
     <thead>
         <tr>
             <th>
-                Level
+                Math Problem:
             </th>
             <th>
-                Score
+                Answer:
             </th>
-            <th>
-                Detailed Report
-            </th>
-            <th>
-
-            </th>
+          
         </tr>
     </thead>
     <tbody>
@@ -40,4 +31,3 @@
 }
     </tbody>
 </table>
-         <div class="headings" >    <a  asp-action="Index">Back to Index</a> </div>  

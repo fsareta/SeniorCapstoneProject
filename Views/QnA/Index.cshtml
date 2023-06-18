@@ -1,0 +1,33 @@
+﻿@model IEnumerable<QnA>
+<div class="row">
+	<div class="col-sm-6">
+<form asp-action="Index" method="get">
+		</form>
+			</div>
+<div class="col-sm-6">
+	<form asp-action="Index" method="get">
+	</form></div></div>
+<table class="table">
+	<tr>
+<th> Id </th>
+<th> LevelId </th>
+<th> Question </th>
+<th> Answer </th>
+
+
+	</tr>
+	
+	@foreach (QnA q in Model)
+	{	<tr>
+		<td>@q.Id</td>
+	<td>@q.LevelId</td>
+	<td>@q.MathEquation</td>
+	<td>@q.Answer</td>
+
+	</tr>
+	}
+
+</table>
+<div class="headings form-group">
+		<a button type="button" class="btn btn-outline-primary" asp-action="Create">Create New Equations</a>
+	</div>

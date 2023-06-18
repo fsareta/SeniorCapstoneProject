@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Y1Kwy0KaSPohDzaeBZXSl2TVPEiXxmhhb3MwRJTsrks=",
+  "Hash": "PpOOM8kD41CfPpkXBV/T/4o9ynx1ictrGSxd3dtskWM=",
   "Source": "SeniorCapstoneProject",
   "BasePath": "_content/SeniorCapstoneProject",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\unaar\\OneDrive\\CSI 293 Final Capstone Project\\SeniorCapstoneProject\\wwwroot\\Images\\46d09e9b-54e1-41cb-bef0-67b2d7a97f04.jpg",
+      "SourceId": "SeniorCapstoneProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\unaar\\OneDrive\\CSI 293 Final Capstone Project\\SeniorCapstoneProject\\wwwroot\\",
+      "BasePath": "_content/SeniorCapstoneProject",
+      "RelativePath": "Images/46d09e9b-54e1-41cb-bef0-67b2d7a97f04.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\46d09e9b-54e1-41cb-bef0-67b2d7a97f04.jpg"
     },
     {
       "Identity": "C:\\Users\\unaar\\OneDrive\\CSI 293 Final Capstone Project\\SeniorCapstoneProject\\wwwroot\\js\\site.js",

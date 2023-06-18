@@ -8,7 +8,7 @@ using SeniorCapstoneProject.Data;
 
 #nullable disable
 
-namespace SeniorCapstoneProject.Data.Migrations
+namespace SeniorCapstoneProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -232,7 +232,7 @@ namespace SeniorCapstoneProject.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<bool>("IsLocked")
+                    b.Property<bool>("IsUnlocked")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
@@ -243,7 +243,7 @@ namespace SeniorCapstoneProject.Data.Migrations
                         new
                         {
                             Id = 1,
-                            IsLocked = false
+                            IsUnlocked = true
                         });
                 });
 
@@ -280,6 +280,43 @@ namespace SeniorCapstoneProject.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SeniorCapstoneProject.Models.Score", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CurrentScore")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LevelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LevelId")
+                        .IsUnique();
+
+                    b.HasIndex("StudentId")
+                        .IsUnique();
+
+                    b.ToTable("Scores");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CurrentScore = 10,
+                            LevelId = 1,
+                            StudentId = 1
+                        });
+                });
+
             modelBuilder.Entity("SeniorCapstoneProject.Models.Student", b =>
                 {
                     b.Property<int>("Id")
@@ -301,21 +338,13 @@ namespace SeniorCapstoneProject.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("LevelId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
 
                     b.Property<int>("TeacherId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LevelId");
 
                     b.HasIndex("TeacherId");
 
@@ -328,8 +357,6 @@ namespace SeniorCapstoneProject.Data.Migrations
                             Enrolled = true,
                             FirstName = "Emily",
                             LastName = "Falls",
-                            LevelId = 1,
-                            Score = 0,
                             TeacherId = 1
                         });
                 });
@@ -441,21 +468,32 @@ namespace SeniorCapstoneProject.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SeniorCapstoneProject.Models.Student", b =>
+            modelBuilder.Entity("SeniorCapstoneProject.Models.Score", b =>
                 {
                     b.HasOne("SeniorCapstoneProject.Models.Level", "Level")
-                        .WithMany("Student")
-                        .HasForeignKey("LevelId")
+                        .WithOne("Score")
+                        .HasForeignKey("SeniorCapstoneProject.Models.Score", "LevelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SeniorCapstoneProject.Models.Student", "Student")
+                        .WithOne("Score")
+                        .HasForeignKey("SeniorCapstoneProject.Models.Score", "StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Level");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("SeniorCapstoneProject.Models.Student", b =>
+                {
                     b.HasOne("SeniorCapstoneProject.Models.Teacher", "Teacher")
                         .WithMany("Students")
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Level");
 
                     b.Navigation("Teacher");
                 });
@@ -464,7 +502,12 @@ namespace SeniorCapstoneProject.Data.Migrations
                 {
                     b.Navigation("QnA");
 
-                    b.Navigation("Student");
+                    b.Navigation("Score");
+                });
+
+            modelBuilder.Entity("SeniorCapstoneProject.Models.Student", b =>
+                {
+                    b.Navigation("Score");
                 });
 
             modelBuilder.Entity("SeniorCapstoneProject.Models.Teacher", b =>
