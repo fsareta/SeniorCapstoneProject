@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeniorCapstoneProject.Data;
 
@@ -11,9 +12,10 @@ using SeniorCapstoneProject.Data;
 namespace SeniorCapstoneProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230619051124_studentAnswTable")]
+    partial class studentAnswTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -380,10 +382,6 @@ namespace SeniorCapstoneProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QnAId");
-
-                    b.HasIndex("StudentId");
-
                     b.ToTable("StudentAnswers");
 
                     b.HasData(
@@ -531,25 +529,6 @@ namespace SeniorCapstoneProject.Migrations
                         .IsRequired();
 
                     b.Navigation("Teacher");
-                });
-
-            modelBuilder.Entity("SeniorCapstoneProject.Models.StudentAnswer", b =>
-                {
-                    b.HasOne("SeniorCapstoneProject.Models.QnA", "Question")
-                        .WithMany()
-                        .HasForeignKey("QnAId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SeniorCapstoneProject.Models.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Question");
-
-                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("SeniorCapstoneProject.Models.Level", b =>

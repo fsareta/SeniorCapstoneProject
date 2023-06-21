@@ -1,33 +1,30 @@
 ﻿@using SeniorCapstoneProject.ViewModels
-@model AllLevelsVM
-
-<h1 class="welcome2 headings">@Model.Student.FirstName @Model.Student.LastName:</h1>
+@model GameVM
+<h1 class="welcome2 headings">Detailed Report for: @Model.Student.FirstName @Model.Student.LastName:</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                Level
+                Question
             </th>
             <th>
-                Score
+                Student's Answer
             </th>
             <th>
-                Detailed Report
+                Correct/Incorrect
             </th>
-            <th>
-
-            </th>
+            
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Scores) {
+@foreach (var item in Model.StudentAnswers) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.LevelId)
+                @item.QnAId
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CurrentScore)%
+                @item.StuAnswer
             </td>
             <td>
                <a asp-controller="Student"  asp-action="StudAnswers" asp-route-id="@item.Id">View</a>

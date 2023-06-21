@@ -14,9 +14,10 @@ namespace SeniorCapstoneProject.Controllers
             _environment = environment;
         }
 
-        public IActionResult Index(int id)
+        public IActionResult Details(int id)
         {
-            return View();
+            //detailed report of student progress
+            return View(); 
         }
     }
 }

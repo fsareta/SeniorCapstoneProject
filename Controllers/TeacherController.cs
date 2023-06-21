@@ -49,10 +49,55 @@ namespace SeniorCapstoneProject.Controllers
             //create new Teacher
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(TeacherVM teacher)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(teacher);
+            }
+            string fileName = SaveUploadedFile(teacher.TeacherPhoto);
+            Teacher teach = new Teacher
+            {
+                Photo = fileName,
+                FirstName = teacher.FirstName,
+                LastName = teacher.LastName,
+                Phone = teacher.Phone,
+                Email = teacher.Email,
+            };
+            teach.IsActive = true;
+            _context.Teachers.Add(teach);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
         public IActionResult Edit()
         {
             //edit Teacer details
             return View();
+        }
+
+        private string SaveUploadedFile(IFormFile file)
+        {
+            if (file != null)
+            {
+                //What folder to save to
+                //use the relative path from the webHostEnvironment
+                string folder = Path.Combine(_environment.WebRootPath, "Images");
+                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                string filePath = Path.Combine(folder, fileName);
+                //we need the path to save the file.
+                //we need the file name for the database
+                //use a filestream
+                using (FileStream fs = new FileStream(filePath, FileMode.Create))
+                {
+                    //the using statement closes the filestreams for me
+                    //IFormFIle has a method called CopyTo that takes a stream as a parameter
+                    file.CopyTo(fs);
+
+                }
+                return fileName;
+            }
+            return "";
         }
     }
 }

@@ -67,12 +67,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/unaar/OneDrive/CSI 293 Final Capstone Project/SeniorCapstoneProject/Views/Student/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/unaar/OneDrive/CSI 293 Final Capstone Project/SeniorCapstoneProject/Views/Student/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/unaar/OneDrive/CSI 293 Final Capstone Project/SeniorCapstoneProject/Views/Student/StudAnswerById.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxTdHVkQW5zd2VyQnlJZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/unaar/OneDrive/CSI 293 Final Capstone Project/SeniorCapstoneProject/Views/Teacher/ClassList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxDbGFzc0xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/unaar/OneDrive/CSI 293 Final Capstone Project/SeniorCapstoneProject/Views/Teacher/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/unaar/OneDrive/CSI 293 Final Capstone Project/SeniorCapstoneProject/Views/Teacher/Index.cshtml]

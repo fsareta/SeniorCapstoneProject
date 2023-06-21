@@ -16,6 +16,7 @@ namespace SeniorCapstoneProject.Data
         public DbSet<Level> Levels { get; set; }
         public DbSet<QnA> QnAs { get; set; }
         public DbSet<Score> Scores { get; set; }
+        public DbSet<StudentAnswer> StudentAnswers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -29,7 +30,9 @@ namespace SeniorCapstoneProject.Data
             builder.Entity<QnA>().HasData(
                 new QnA { Id = 1, MathEquation = $"{10}+{2}", Answer = $"{12}", LevelId = 1 }); 
             builder.Entity<Score>().HasData(
-                new Score { Id = 1, LevelId = 1, StudentId=1, CurrentScore=10 }); ;
+                new Score { Id = 1, LevelId = 1, StudentId=1, CurrentScore=10 });
+            builder.Entity<StudentAnswer>().HasData(
+               new StudentAnswer { Id=1, QnAId=1, StuAnswer="2", StudentId=1}); ; ;
             base.OnModelCreating(builder);
         }
 

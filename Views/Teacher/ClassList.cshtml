@@ -2,7 +2,7 @@
 
 @model ClassListVM
 
-<h3>List of Students in @Model.Teacher.FirstName @Model.Teacher.LastName's Classroom</h3>
+<h3 class="headings welcome2">List of Students in @Model.Teacher.FirstName @Model.Teacher.LastName's Classroom</h3>
 
 <table class="table table-sm">
     <thead>
@@ -28,11 +28,12 @@
               @Model.Level.Id
             </td>
             <td>
-               <a asp-controller="Students" asp-action="Details" asp-route-id="@item.Id">View Report</a> 
+               <a asp-controller="Student" asp-action="Details" asp-route-id="@item.Id">View Report</a> 
+               <a asp-controller="Student" asp-action="Edit" asp-route-id="@item.Id">Edit Student Details</a>
             </td>
 
         </tr>
 }
     </tbody>
 </table>
-<a asp-action="Index">Back to Class Index</a> |
+<div class="headings"><a class="button-71" asp-action="Index">Back to Class Index</a> </div>

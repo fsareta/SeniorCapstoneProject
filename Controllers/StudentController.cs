@@ -40,6 +40,24 @@ namespace SeniorCapstoneProject.Controllers
             };
             return View(model);
         }
+        public IActionResult StudAnswerById(int id)
+        {//not working
+            if (id == 0)
+            {
+                return NotFound();
+            }
+            Student student=_context.Students.SingleOrDefault(x=>x.Id== id);
+   
+            IEnumerable<StudentAnswer> answers=_context.StudentAnswers.Where(x => x.StudentId==student.Id);
+            GameVM model = new GameVM
+            {
+                Student = student,
+                StudentAnswers = answers,
+                
+            };
+            
+            return View(model);
+        }
         public IActionResult Create()
         {
             IEnumerable<SelectListItem> teacherList = _context.Teachers.Select(x => new SelectListItem
